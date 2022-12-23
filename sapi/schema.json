@@ -1,0 +1,60 @@
+{
+  "key": {
+    "type": "record",
+    "name": "messages",
+    "namespace": "30666530626665362d353430352d346439352d386435632d373135613331376561373336_chatroom",
+    "doc": "Table 30666530626665362d353430352d346439352d386435632d373135613331376561373336_chatroom.messages",
+    "fields": [
+      {
+        "name": "room",
+        "type": "string"
+      },
+      {
+        "name": "id",
+        "type": [
+          "null",
+          {
+            "type": "string",
+            "logicalType": "uuid"
+          }
+        ],
+        "default": null
+      }
+    ]
+  },
+  "value": {
+    "type": "record",
+    "name": "messages",
+    "namespace": "30666530626665362d353430352d346439352d386435632d373135613331376561373336_chatroom",
+    "doc": "Table 30666530626665362d353430352d346439352d386435632d373135613331376561373336_chatroom.messages",
+    "fields": [
+      {
+        "name": "sender",
+        "type": [
+          "null",
+          "string"
+        ],
+        "default": null
+      },
+      {
+        "name": "when",
+        "type": [
+          "null",
+          {
+            "type": "long",
+            "logicalType": "timestamp-millis"
+          }
+        ],
+        "default": null
+      },
+      {
+        "name": "message",
+        "type": [
+          "null",
+          "string"
+        ],
+        "default": null
+      }
+    ]
+  }
+}
