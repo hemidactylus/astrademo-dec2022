@@ -31,7 +31,7 @@ astra db cqlsh workshops -f cql/initialize.cql
 
 ```
 cd api
-pip install fastapi uvicorn[standard] python-dotenv
+pip install fastapi uvicorn[standard] python-dotenv requests
 ```
 
 WRITE: create `api.py`
