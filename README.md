@@ -2,9 +2,15 @@
 
 ### DB and Admin token
 
+- Create DB and admin token
+
 make sure (AWS) `us-east-1` for later cdc (ultrasink)
 
 ### astra cli
+
+```
+curl -Ls "https://dtsx.io/get-astra-cli" | bash
+```
 
 get astra cli working with token configured
 
@@ -13,16 +19,18 @@ get astra cli working with token configured
 _Note_: append `--config ultrasink` to astra commands to use that account.
 
 ```
-astra db create workshops --if-not-exist -k chatroom --wait
+astra db create demo --if-not-exist -k chatroom --wait
 ```
 
 ```
-astra db create-dotenv workshops -k chatroom
+astra db create-dotenv demo -k chatroom
 . .env
 ```
 
+create initialize.cql
+
 ```
-astra db cqlsh workshops -f cql/initialize.cql
+astra db cqlsh demo -f cql/initialize.cql
 ```
 
 ### api
@@ -115,3 +123,7 @@ cdc and python: sample code gets a 404 on the schema endpoint, have to copy past
 (pulsar) docs tell you to use AvroSchema("Record" instance), nowhere is it said there's a second missing arg and examples found around don't work. (see e.g. https://github.com/ta1meng/pulsar-python-avro-schema-examples/blob/main/example01_simple_schema/SimpleSchema.py but same on https://pulsar.apache.org/docs/2.10.x/client-libraries-python/#simple-definition , see `schema=AvroSchema(Example))` line)
 
 In Astra UI, CDC does not "Initializing" -> "Running" by itself, you have to refresh.
+
+region naming inconsistency: GCP has "us-east1" (as opposed to AWS "us-east-1"), but then when creating a stream in the UI the dropdown has "useast1". Confusing.
+
+CDC makes table insertion fail at least on gcp us-east1 (!)

@@ -6,7 +6,7 @@ from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
 from dotenv import load_dotenv
 
-load_dotenv('../.env')
+load_dotenv('./.env')
 
 ASTRA_DB_APPLICATION_TOKEN = os.environ['ASTRA_DB_APPLICATION_TOKEN']
 ASTRA_DB_ID = os.environ['ASTRA_DB_ID']
